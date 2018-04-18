@@ -1,0 +1,47 @@
+<DOCTYPE html>
+
+        <html lang="en">
+        
+          <head>
+              <title>interval</title>
+          </head>
+          <body>
+                
+            <select id="options">
+                <option>--Pick an Option--</option>
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            
+            <script>
+              function Grower() {
+                //Get current width of the target element
+                this.width  = document.getElementById('demo').offsetWidth;
+
+                //Set a counter to the current width
+                this.num = this.width
+
+                //Execute the counter on a set interval
+                this.timer = setInterval(() => {
+                    //Increment the counter
+                    this.num++;
+
+                    //Add one pixil to the width of the target element
+                    document.getElementById('demo').style = 'width:' + this.num + 'px;';
+
+                    //After fifty iterations, kill the loop.
+                    if(this.num === this.width + 50){
+                    clearInterval(this.timer);
+                    }
+                }, 1);
+                }
+
+                // Function to add event listener to button#time
+                var btn = document.getElementById("GrowBtn");
+                btn.addEventListener("click", function(){new Grower()}, false);   
+                            
+            </script>
+        
+          </body>
+        </html>

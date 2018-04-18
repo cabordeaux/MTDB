@@ -1,0 +1,66 @@
+<DOCTYPE html>
+    <html lang=en>
+
+        <head>
+            <title>switch</title>
+        </head>
+        <body>
+            <script>
+                //Initialize your variables
+                var label = null;
+                var color = null;
+                var GET = {};
+
+                if(document.location.toString().indexOf('?') !== -1 ){
+                    var query = document.location
+                        .toString()
+                        //Get the query string
+                        .replace(/^.*?\?/,'')
+
+                     
+                        // and remove any existing hash tags
+                        .replace(/#.*$/,'')
+                        .split('&');
+
+
+                for (var i=0; i<query.length; i++){
+                     var x = decodeURIComponent(query[i]).split('=');
+                    console.log(x);
+                    GET[ x[0] ] =x[1];                }
+
+                
+            }
+
+            if(GET['color']!=='undefined'){
+                color = `#${GET['color']}`;
+            }
+
+            //can we name the color by its hex value?
+            switch(color){
+                case "#ff0000":
+                    label = 'red';
+                break;
+           
+                case "#ff0000":
+                    label = 'red';
+                break; 
+                
+                case "#00ff00":
+                    label = 'green';
+                break;
+
+                case "#0000ff":
+                    label = 'blue';
+                break;
+
+                default:
+                    label = 'unknown';
+            }
+            
+
+
+            document.write(`<div style="color:${color}">The color is ${label}</div>`);
+        
+        </script>
+    </body>
+</html>
